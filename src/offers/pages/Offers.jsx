@@ -7,6 +7,7 @@ import AuthContext from '../../shared/context/AuthContext';
 import OffersContext from '../../shared/context/OffersContext';
 import OffersList from '../components/OffersList';
 import LoadingSpinner from '../../shared/ui-ux/LoadingSpinner';
+import debugLog from '../../shared/util/logger';
 
 import classes from './Offers.module.css';
 
@@ -28,7 +29,7 @@ function Offers() {
     } catch (error) {
       setUserOffers([]);
       setIsLoading(false);
-      console.log(error);
+      debugLog(error);
     }
   };
 

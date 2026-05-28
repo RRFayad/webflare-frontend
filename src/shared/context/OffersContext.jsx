@@ -3,6 +3,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import axios from 'axios';
 
 import { formHookDataMapper } from '../util/validators-and-formatters';
+import debugLog from '../util/logger';
 
 const OffersContext = React.createContext({
   fetchOffer: () => {},
@@ -20,7 +21,7 @@ export function OffersContextProvider(props) {
         `${process.env.REACT_APP_BACKEND_DOMAIN_URL}/api/offers/${offerId}`
       );
     } catch (error) {
-      console.log(`Error fetching offer: ${error.response.data.message}`);
+      debugLog(`Error fetching offer: ${error.response.data.message}`);
     }
 
     return response.data.offer;
@@ -33,7 +34,7 @@ export function OffersContextProvider(props) {
         `${process.env.REACT_APP_BACKEND_DOMAIN_URL}/api/offers/user/${userId}`
       );
     } catch (error) {
-      console.log(`Error fetching offer: ${error.response.data.message}`);
+      debugLog(`Error fetching offer: ${error.response.data.message}`);
     }
     return response.data.offers;
   };
@@ -56,7 +57,7 @@ export function OffersContextProvider(props) {
           },
         }
       );
-      console.log('Offer Created Successfully');
+      debugLog('Offer Created Successfully');
     } catch (error) {
       alert(`Error creating offer: ${error.response.data.message}`);
     }
@@ -76,7 +77,7 @@ export function OffersContextProvider(props) {
         }
       );
     } catch (error) {
-      console.log(`Error Updateing Offer: ${error.response.data.message}`);
+      debugLog(`Error Updateing Offer: ${error.response.data.message}`);
     }
     return response.data.offer;
   };
@@ -91,9 +92,9 @@ export function OffersContextProvider(props) {
           },
         }
       );
-      console.log('Offer Denied (and Deleted) Successfully');
+      debugLog('Offer Denied (and Deleted) Successfully');
     } catch (error) {
-      console.log(`Error Updateing Offer: ${error.response.data.message}`);
+      debugLog(`Error Updateing Offer: ${error.response.data.message}`);
     }
     return response.data.message;
   };

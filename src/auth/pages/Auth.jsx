@@ -16,6 +16,7 @@ import {
   emailValidator,
   passwordValidator,
 } from '../../shared/util/validators-and-formatters';
+import debugLog from '../../shared/util/logger';
 
 import classes from './Auth.module.css';
 
@@ -139,7 +140,8 @@ function Auth() {
                     history.push('/');
                   } catch (error) {
                     setIsLoading(false);
-                    return console.log(error);
+                    debugLog(error);
+                    return null;
                   }
                 }
                 if (userHasAccount) {
@@ -148,7 +150,8 @@ function Auth() {
                     history.push('/');
                   } catch (error) {
                     setIsLoading(false);
-                    return console.log(error);
+                    debugLog(error);
+                    return null;
                   }
                 }
                 // console.log(formData);

@@ -8,6 +8,7 @@ import NewAuthContext from '../../shared/context/AuthContext';
 import UserCard from '../components/UserCard';
 import BusinessList from '../../business/components/Homepage/BusinessList';
 import LoadingSpinner from '../../shared/ui-ux/LoadingSpinner';
+import debugLog from '../../shared/util/logger';
 
 import classes from './Profile.module.css';
 
@@ -30,7 +31,7 @@ function Profile() {
       } catch (error) {
         setUsersBusinesses([]);
         setIsLoading(false);
-        console.log('Error fetching businesses');
+        debugLog('Error fetching businesses');
       }
     };
     fetchBusinesses();

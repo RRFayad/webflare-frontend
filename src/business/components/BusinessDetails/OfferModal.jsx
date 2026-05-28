@@ -7,6 +7,7 @@ import BusinessContext from '../../../shared/context/BusinessContext';
 import NewAuthContext from '../../../shared/context/AuthContext';
 import LoadingSpinner from '../../../shared/ui-ux/LoadingSpinner';
 import { formatCurrency } from '../../../shared/util/validators-and-formatters';
+import debugLog from '../../../shared/util/logger';
 
 import classes from './OfferModal.module.css';
 
@@ -38,7 +39,7 @@ function OfferCard(props) {
         setOwner(fetchedOwner);
       } catch (error) {
         setOwner(null);
-        console.log(`Error fetching business`);
+        debugLog('Error fetching business');
       }
     };
     getOwner(id);

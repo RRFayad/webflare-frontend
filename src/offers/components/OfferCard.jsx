@@ -6,6 +6,7 @@ import OffersContext from '../../shared/context/OffersContext';
 import AuthContext from '../../shared/context/AuthContext';
 import { formatCurrency } from '../../shared/util/validators-and-formatters';
 import LoadingSpinner from '../../shared/ui-ux/LoadingSpinner';
+import debugLog from '../../shared/util/logger';
 
 import classes from './OfferCard.module.css';
 
@@ -30,7 +31,7 @@ function OfferCard(props) {
             : offerData.sender
         );
       } catch (error) {
-        console.log(error);
+        debugLog(error);
         setIsLoading(false);
       }
       setIsLoading(false);

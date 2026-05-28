@@ -8,6 +8,7 @@ import OfferModal from './OfferModal';
 import LoadingSpinner from '../../../shared/ui-ux/LoadingSpinner';
 import { formatCurrency } from '../../../shared/util/validators-and-formatters';
 import BusinessContext from '../../../shared/context/BusinessContext';
+import debugLog from '../../../shared/util/logger';
 
 import classes from './BusinessInfo.module.css';
 
@@ -30,7 +31,7 @@ function BusinessInfo() {
       } catch (error) {
         setBusiness(null);
         setIsLoading(false);
-        console.log(`Error fetching business`);
+        debugLog('Error fetching business');
       }
     };
     getBusiness(bid);

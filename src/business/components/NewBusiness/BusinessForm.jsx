@@ -8,6 +8,7 @@ import FormButton from '../../../shared/ui-ux/FormButton';
 import FormInput from '../../../shared/ui-ux/FormInput';
 import useForm from '../../../shared/custom-hooks/useForm';
 import LoadingSpinner from '../../../shared/ui-ux/LoadingSpinner';
+import debugLog from '../../../shared/util/logger';
 
 import {
   minLengthValidator,
@@ -171,7 +172,7 @@ function BusinessForm() {
                       setIsLoading(false);
                       history.push('/');
                     } catch (error) {
-                      console.log(error);
+                      debugLog(error);
                       setIsLoading(false);
                     }
                   }}

@@ -9,6 +9,7 @@ import {
 } from './business-filters-reducer';
 import { businessTypesOptions, nichesOptions } from '../util/parameters';
 import { formHookDataMapper } from '../util/validators-and-formatters';
+import debugLog from '../util/logger';
 
 const BusinessContext = React.createContext({
   // business parameters
@@ -82,9 +83,9 @@ export function BusinessContextProvider(props) {
           'Content-Type': 'multipart/form-data',
         },
       });
-      console.log('Business Created Successfully:', response);
+      debugLog('Business Created Successfully:', response);
     } catch (error) {
-      console.log(error);
+      debugLog(error);
       alert(`Error creating business: ${error.response.data.message}`);
     }
 
@@ -97,7 +98,7 @@ export function BusinessContextProvider(props) {
     try {
       response = await axios.get(`${url.businesses}${businessId}`);
     } catch (error) {
-      console.log(`Error creating user: ${error.response.data.message}`);
+      debugLog(`Error creating user: ${error.response.data.message}`);
     }
 
     return response.data.business;
@@ -108,7 +109,7 @@ export function BusinessContextProvider(props) {
     try {
       response = await axios.get(`${url.ownerData}${businessId}`);
     } catch (error) {
-      console.log(`Error fetching user: ${error.response.data.message}`);
+      debugLog(`Error fetching user: ${error.response.data.message}`);
     }
     return response.data.user;
   };
@@ -118,7 +119,7 @@ export function BusinessContextProvider(props) {
     try {
       response = await axios.get(`${url.businessesByUser}${userId}`);
     } catch (error) {
-      console.log(`Error fetching user: ${error.response.data.message}`);
+      debugLog(`Error fetching user: ${error.response.data.message}`);
     }
     return response.data.businesses;
   };
@@ -147,7 +148,7 @@ export function BusinessContextProvider(props) {
           },
         }
       );
-      console.log('Business updated:', response.data);
+      debugLog('Business updated:', response.data);
     } catch (error) {
       alert(`Error updating business: ${error.response.data.message}`);
     }
@@ -166,7 +167,7 @@ export function BusinessContextProvider(props) {
           },
         }
       );
-      console.log('Business Deleted Successfully!');
+      debugLog('Business Deleted Successfully!');
     } catch (error) {
       alert(`Error updating user: ${error.response.data.message}`);
     }

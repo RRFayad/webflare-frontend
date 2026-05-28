@@ -15,6 +15,7 @@ import {
   integerInputValidator,
   formatCurrency,
 } from '../../../shared/util/validators-and-formatters';
+import debugLog from '../../../shared/util/logger';
 
 import classes from './NewOfferForm.module.css';
 
@@ -38,7 +39,7 @@ function NewOfferForm() {
       } catch (error) {
         setMaxPrice(Infinity);
         setIsLoading(false);
-        console.log(`Error fetching business`);
+        debugLog('Error fetching business');
       }
     };
     getBusiness(businessId);

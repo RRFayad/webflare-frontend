@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 
 import { formHookDataMapper } from '../util/validators-and-formatters';
+import debugLog from '../util/logger';
 
 const AuthContext = React.createContext({
   isLoggedIn: false,
@@ -37,7 +38,7 @@ export function AuthContextProvider(props) {
     setToken(null);
     setUserData(null);
     clearTimeout(logoutTimer);
-    return console.log('User logged out!!');
+    debugLog('User logged out!!');
   };
 
   const signUpHandler = async (formUserData) => {
@@ -122,7 +123,7 @@ export function AuthContextProvider(props) {
           },
         }
       );
-      console.log('User updated:', response);
+      debugLog('User updated:', response);
       setUserData(response.data.user);
       localStorage.setItem(
         'userData',
@@ -141,7 +142,7 @@ export function AuthContextProvider(props) {
         `${url.updatePassword}/${userData.id}`,
         profileData
       );
-      console.log('Password updated:', response.data.message);
+      debugLog('Password updated:', response.data.message);
     } catch (error) {
       alert(`Error updating user: ${error.response.data.message}`);
     }
