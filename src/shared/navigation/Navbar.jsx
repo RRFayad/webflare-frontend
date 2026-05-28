@@ -25,6 +25,7 @@ function Navbar() {
         <button
           type="button"
           className={`${classes['nav-bar__sandwich-menu']}`}
+          aria-label="Open navigation menu"
           onClick={() => setModalMenuIsShown((state) => !state)}
         >
           <span />

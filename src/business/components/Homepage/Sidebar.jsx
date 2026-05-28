@@ -49,49 +49,45 @@ function SideBar() {
         <div className={`${classes['price-filter']}`}>
           <p>Asking Price</p>
           <div className={`${classes['price-filter__container']}`}>
-            <label htmlFor="min-price">
-              <input
-                type="number"
-                id="min-price"
-                placeholder="Min"
-                ref={minPriceRef}
-                onChange={filterValueChangeHandler}
-              />
-            </label>
+            <input
+              type="number"
+              id="min-price"
+              placeholder="Min"
+              aria-label="Minimum asking price"
+              ref={minPriceRef}
+              onChange={filterValueChangeHandler}
+            />
             -
-            <label htmlFor="max-price">
-              <input
-                type="number"
-                id="max-price"
-                placeholder="Max"
-                ref={maxPriceRef}
-                onChange={filterValueChangeHandler}
-              />
-            </label>
+            <input
+              type="number"
+              id="max-price"
+              placeholder="Max"
+              aria-label="Maximum asking price"
+              ref={maxPriceRef}
+              onChange={filterValueChangeHandler}
+            />
           </div>
         </div>
         <div className={`${classes['profit-filter']}`}>
           <p>Monthly Profit</p>
           <div className={`${classes['profit-filter__container']}`}>
-            <label htmlFor="min-profit">
-              <input
-                type="number"
-                id="min-profit"
-                placeholder="Min"
-                ref={minProfitRef}
-                onChange={filterValueChangeHandler}
-              />
-            </label>
+            <input
+              type="number"
+              id="min-profit"
+              placeholder="Min"
+              aria-label="Minimum monthly profit"
+              ref={minProfitRef}
+              onChange={filterValueChangeHandler}
+            />
             -
-            <label htmlFor="max-profit">
-              <input
-                type="number"
-                id="max-profit"
-                placeholder="Max"
-                ref={maxProfitRef}
-                onChange={filterValueChangeHandler}
-              />
-            </label>
+            <input
+              type="number"
+              id="max-profit"
+              placeholder="Max"
+              aria-label="Maximum monthly profit"
+              ref={maxProfitRef}
+              onChange={filterValueChangeHandler}
+            />
           </div>
         </div>
       </div>
