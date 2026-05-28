@@ -12,6 +12,17 @@ import classes from './Navbar.module.css';
 function Navbar() {
   const { isLoggedIn, userData, logoutHandler } = useContext(NewAuthContext);
   const [modalMenuIsShown, setModalMenuIsShown] = useState(false);
+  const githubRepoLink = (
+    <li className={`${classes['nav-bar__link']}`}>
+      <a
+        href="https://github.com/RRFayad/webflare-api"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Github Repo
+      </a>
+    </li>
+  );
 
   return (
     <>
@@ -62,15 +73,7 @@ function Navbar() {
                   Add Business
                 </NavLink>
               </li>
-              <li className={`${classes['nav-bar__link']}`}>
-                <a
-                  href="https://github.com/RRFayad/webflare-api"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Github Repo
-                </a>
-              </li>
+              {githubRepoLink}
               <li className={userData.id && `${classes['nav-bar__link']}`}>
                 <NavLink to="/" exact onClick={logoutHandler}>
                   Logout
@@ -79,13 +82,16 @@ function Navbar() {
             </>
           )}
           {!isLoggedIn && (
-            <li
-              className={`${classes['nav-bar__link']} ${classes['nav-bar__link--cta']}`}
-            >
-              <NavLink to="/auth" exact>
-                Login
-              </NavLink>
-            </li>
+            <>
+              {githubRepoLink}
+              <li
+                className={`${classes['nav-bar__link']} ${classes['nav-bar__link--cta']}`}
+              >
+                <NavLink to="/auth" exact>
+                  Login
+                </NavLink>
+              </li>
+            </>
           )}
         </ul>
       </nav>
