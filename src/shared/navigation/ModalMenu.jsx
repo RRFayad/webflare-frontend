@@ -43,6 +43,17 @@ function ModalMenu(props) {
                 </NavLink>
               </button>
             </li>
+            <li className={`${classes['modal-menu__link']}`}>
+              <button type="button" onClick={props.onClick}>
+                <a
+                  href="https://github.com/RRFayad/webflare-api"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Github Repo
+                </a>
+              </button>
+            </li>
           </div>
           <li className={`${classes['modal-menu__link']}`}>
             <button type="button" onClick={logoutHandler}>
@@ -54,18 +65,31 @@ function ModalMenu(props) {
         </>
       )}
       {!isLoggedIn && (
-        <li
-          className={`${classes['modal-menu__link']} ${classes['modal-menu__link--cta']}`}
-        >
-          <button type="button">
-            <NavLink to="/auth" exact>
-              Login
-            </NavLink>
-          </button>
-        </li>
+        <>
+          <li className={`${classes['modal-menu__link']}`}>
+            <button type="button" onClick={props.onClick}>
+              <a
+                href="https://github.com/RRFayad/webflare-api"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Github Repo
+              </a>
+            </button>
+          </li>
+          <li
+            className={`${classes['modal-menu__link']} ${classes['modal-menu__link--cta']}`}
+          >
+            <button type="button">
+              <NavLink to="/auth" exact>
+                Login
+              </NavLink>
+            </button>
+          </li>
+        </>
       )}
     </SideDrawer>,
-    document.querySelector('#modal')
+    document.querySelector('#modal'),
   );
 }
 

@@ -62,6 +62,15 @@ function Navbar() {
                   Add Business
                 </NavLink>
               </li>
+              <li className={`${classes['nav-bar__link']}`}>
+                <a
+                  href="https://github.com/RRFayad/webflare-api"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Github Repo
+                </a>
+              </li>
               <li className={userData.id && `${classes['nav-bar__link']}`}>
                 <NavLink to="/" exact onClick={logoutHandler}>
                   Logout
